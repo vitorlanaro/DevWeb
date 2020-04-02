@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Exercicio ONMOUSEMOVE</h1>
+
+        <img id="myImage" src="imagem/pic_bulboff.gif">
+
+        <script>
+            let interruptor = false;
+            let lampada = document.getElementById("myImage");
+
+            lampada.onmousemove = () => {
+                if(interruptor){
+                    lampada.src = "imagem/pic_bulboff.gif";
+                    interruptor = false;
+                }else{
+                    lampada.src = "imagem/pic_bulbon.gif";
+                    interruptor = true;
+                }
+            }
+            
+        </script>
+    </body>
+</html>
