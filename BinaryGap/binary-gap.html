@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Desafio BinaryGap</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+    <h1>Desafio BinaryGap</h1>
+    <h2>RA: 1832997-2</h2>
+    <h2>Nomes: Vitor Santos Lanaro</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Digito</th>
+                <th>Ação</th>
+                <th>Valor Binario</th>
+                <th>BinaryGap?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="digito">9</td>
+                <td><button value="9" onclick="buttonClick(0)">Calcula</button></td>
+                <td class="bin">?</td>
+                <td class="gap">?</td>
+            </tr>
+            <tr>
+                <td class="digito">526</td>
+                <td><button value="526" onclick="buttonClick(1)">Calcula</button></td>
+                <td class="bin">?</td>
+                <td class="gap">?</td>
+            </tr>
+            <tr>
+                <td class="digito">20</td>
+                <td><button value="20" onclick="buttonClick(2)">Calcula</button></td>
+                <td class="bin">?</td>
+                <td class="gap">?</td>
+            </tr>
+            <tr>
+                <td class="digito">15</td>
+                <td><button value="15" onclick="buttonClick(3)">Calcula</button></td>
+                <td class="bin">?</td>
+                <td class="gap">?</td>
+            </tr>
+            <tr>
+                <td class="digito">32</td>
+                <td><button value="32" onclick="buttonClick(4)">Calcula</button></td>
+                <td class="bin">?</td>
+                <td class="gap">?</td>
+            </tr>
+            <tr>
+                <td class="digito" value = >2031654946</td>
+                <td><button value="2031654946" onclick="buttonClick(5)">Calcula</button></td>
+                <td class="bin">?</td>
+                <td class="gap">?</td>
+            </tr>
+            <tr>
+                <td class="digito">19</td>
+                <td><button value="19" onclick="buttonClick(6)">Calcula</button></td>
+                <td class="bin">?</td>
+                <td class="gap">?</td>
+            </tr>
+            <tr>
+                <td class="digito">42</td>
+                <td><button value="42" onclick="buttonClick(7)">Calcula</button></td>
+                <td class="bin">?</td>
+                <td class="gap">?</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script>
+        let numero = document.getElementsByTagName('button');
+        let binNumber = new Array;
+
+        for(indice = 0; indice < numero.length; indice++){
+            binNumber[indice] = dec2bin(numero.item(indice).value);
+        }
+            
+        function buttonClick(indice){
+            let numeroBinario = document.getElementsByClassName('bin');
+            let numeroGap = document.getElementsByClassName('gap');
+            numeroBinario.item(indice).innerHTML = binNumber[indice];
+            let value = binNumber[indice];
+
+            if(value.match(/1.*0.*1/)){
+               teste = getGap(value.split("1"));
+               numeroGap.item(indice).innerHTML = teste;
+            }else{
+                numeroGap.item(indice).innerHTML = 0;
+            }
+        }  
+
+        function getGap(gap){
+            console.log(gap);
+            let maior = 0;
+            for(indice = 0; indice < gap.length; indice++){
+                if(gap[indice].length > maior){
+                    maior = gap[indice].length;
+                }
+            }
+            return maior;
+        }
+        
+        //valeu stack overflow
+        function dec2bin(dec) {
+            return (dec >>> 0).toString(2);
+        }
+    </script>
+</body>
+
+</html>
